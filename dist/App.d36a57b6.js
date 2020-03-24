@@ -30051,7 +30051,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _pet = require("@frontendmasters/pet");
+var _pet = _interopRequireWildcard(require("@frontendmasters/pet"));
 
 var _useDropdown5 = _interopRequireDefault(require("./useDropdown"));
 
@@ -30086,10 +30086,24 @@ var SearchParams = function SearchParams() {
       AnimalDropdown = _useDropdown2[1];
 
   var _useDropdown3 = (0, _useDropdown5.default)('Breed', '', breeds),
-      _useDropdown4 = _slicedToArray(_useDropdown3, 2),
+      _useDropdown4 = _slicedToArray(_useDropdown3, 3),
       breed = _useDropdown4[0],
-      BreedDropdown = _useDropdown4[1];
+      BreedDropdown = _useDropdown4[1],
+      setBreed = _useDropdown4[2];
 
+  (0, _react.useEffect)(function () {
+    setBreeds([]);
+    setBreed('');
+
+    _pet.default.breeds(animal).then(function (_ref) {
+      var breeds = _ref.breeds;
+      var breedString = breeds.map(function (_ref2) {
+        var name = _ref2.name;
+        return name;
+      });
+      setBreeds(breedString);
+    }, console.error());
+  }, [animal, setBreed, setBreeds]);
   return _react.default.createElement("div", {
     className: "search-params"
   }, _react.default.createElement("h1", null, location), _react.default.createElement("form", null, _react.default.createElement("label", {
