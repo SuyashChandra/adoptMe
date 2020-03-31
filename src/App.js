@@ -3,13 +3,13 @@ import { render } from 'react-dom';
 import { Router, Link } from '@reach/router';
 import SearchParams from './SearchParams';
 import Details from './Details';
-import ThemeConext from './ThemeContext';
+import ThemeContext from './ThemeContext';
 
 const App = () => {
-  const themeHook = useState('seaGreen');
+  const themeHook = useState('seagreen');
   return (
     <React.StrictMode>
-      <ThemeConext.Provider value={themeHook}>
+      <ThemeContext.Provider value={themeHook}>
         <div>
           <header>
             <Link to="/">Adopt Me!</Link>
@@ -19,7 +19,7 @@ const App = () => {
             <Details path="/details/:id" />
           </Router>
         </div>
-      </ThemeConext.Provider>
+      </ThemeContext.Provider>
     </React.StrictMode>
   );
 };
