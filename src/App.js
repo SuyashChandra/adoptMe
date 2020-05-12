@@ -1,5 +1,4 @@
 import React, { useState, lazy, Suspense } from 'react';
-import { render } from 'react-dom';
 import { Router, Link } from '@reach/router';
 import ThemeContext from './ThemeContext';
 
