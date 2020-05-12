@@ -3,9 +3,9 @@ import reducer from './reducers';
 
 const store = createStore(
   reducer,
-  typeof window == 'object' &&
-    typeof window.REDUX__DEVTOOLS_ETENSION__ != 'undefined'
-    ? window.REDUX__DEVTOOLS_ETENSION__
+  typeof window === 'object' &&
+    typeof window.__REDUX_DEVTOOLS_EXTENSION__ !== 'undefined'
+    ? window.__REDUX_DEVTOOLS_EXTENSION__()
     : f => f
 );
 
